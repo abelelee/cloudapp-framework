@@ -39,6 +39,8 @@ jobs:
             ${{ runner.os }}-maven-
       - name: Compile & Checkstyle
         run: mvn clean compile
+      - name: Set Timezone
+        run: ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
       - name: install dependencies
         run: mvn clean install -DskipTests
       - name: Testing
